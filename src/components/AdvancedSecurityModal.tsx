@@ -14,7 +14,7 @@ export default function AdvancedSecurityModal({
   onClose,
   url
 }: AdvancedSecurityModalProps) {
-  const [scanResults, setScanResults] = useState<any>(null);
+  const [scanResults, setScanResults] = useState<unknown>(null);
   const [isScanning, setIsScanning] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -235,7 +235,7 @@ export default function AdvancedSecurityModal({
 
                 {activeTab === 'pentest' && (
                   <div className="space-y-4">
-                    {scanResults.penetrationTesting.tests.map((test: any, index: number) => (
+                    {scanResults.penetrationTesting.tests.map((test: unknown, index: number) => (
                       <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-semibold text-white">{test.test}</h4>
@@ -255,7 +255,7 @@ export default function AdvancedSecurityModal({
 
                 {activeTab === 'compliance' && (
                   <div className="space-y-4">
-                    {scanResults.compliance.standards.map((standard: any, index: number) => (
+                    {scanResults.compliance.standards.map((standard: unknown, index: number) => (
                       <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                         <div className="flex items-center justify-between mb-3">
                           <h4 className="font-semibold text-white">{standard.standard}</h4>
@@ -281,7 +281,7 @@ export default function AdvancedSecurityModal({
 
                 {activeTab === 'blockchain' && (
                   <div className="space-y-4">
-                    {scanResults.blockchain.assessments.map((assessment: any, index: number) => (
+                    {scanResults.blockchain.assessments.map((assessment: unknown, index: number) => (
                       <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                         <div className="flex items-center justify-between mb-3">
                           <h4 className="font-semibold text-white">{assessment.area}</h4>
@@ -307,7 +307,7 @@ export default function AdvancedSecurityModal({
 
                 {activeTab === 'threat-hunting' && (
                   <div className="space-y-4">
-                    {scanResults.threatHunting.findings.map((finding: any, index: number) => (
+                    {scanResults.threatHunting.findings.map((finding: unknown, index: number) => (
                       <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-semibold text-white">{finding.threat}</h4>
@@ -325,7 +325,7 @@ export default function AdvancedSecurityModal({
 
                 {activeTab === 'soar' && (
                   <div className="space-y-4">
-                    {scanResults.soar.capabilities.map((capability: any, index: number) => (
+                    {scanResults.soar.capabilities.map((capability: unknown, index: number) => (
                       <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                         <div className="flex items-center justify-between mb-3">
                           <h4 className="font-semibold text-white">{capability.capability}</h4>

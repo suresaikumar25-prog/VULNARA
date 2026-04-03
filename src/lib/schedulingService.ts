@@ -79,7 +79,7 @@ export class SchedulingService {
   // Get all scheduled scans for a user
   static async getScheduledScans(userId: string): Promise<ScheduledScan[]> {
     try {
-      let formattedUserId = userId;
+      const formattedUserId = userId;
       
       if (!supabase) {
         throw new Error('Database not configured');
@@ -146,7 +146,7 @@ export class SchedulingService {
   // Delete a scheduled scan
   static async deleteScheduledScan(scanId: string, userId: string): Promise<boolean> {
     try {
-      let formattedUserId = userId;
+      const formattedUserId = userId;
       
       if (!supabase) {
         throw new Error('Database not configured');
@@ -174,7 +174,7 @@ export class SchedulingService {
   // Toggle active status of a scheduled scan
   static async toggleScheduledScan(scanId: string, userId: string): Promise<ScheduledScan | null> {
     try {
-      let formattedUserId = userId;
+      const formattedUserId = userId;
       // First get the current status
       if (!supabase) {
         throw new Error('Database not configured');

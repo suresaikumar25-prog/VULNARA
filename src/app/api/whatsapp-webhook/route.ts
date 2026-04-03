@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
 
 // Extract WhatsApp message data from webhook payload
 // This function needs to be customized based on your WhatsApp service provider
-function extractWhatsAppData(webhookBody: any): {
+function extractWhatsAppData(webhookBody: unknown): {
   from: string;
   message: string;
   messageId: string;

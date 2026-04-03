@@ -380,7 +380,7 @@ export default function DashboardView() {
     confidence: number;
     probability: number;
     risk_level: string;
-    indicators?: any[];
+    indicators?: unknown[];
     suspicious_elements?: string[];
     legitimate_elements?: string[];
     recommendations?: string[];
@@ -405,11 +405,11 @@ export default function DashboardView() {
     isValidating: boolean;
   }>({ isValid: false, isLive: false, isValidating: false });
   const [showAIRemediation, setShowAIRemediation] = useState(false);
-  const [selectedVulnerability, setSelectedVulnerability] = useState<any>(null);
+  const [selectedVulnerability, setSelectedVulnerability] = useState<unknown>(null);
   const [showContextualRisk, setShowContextualRisk] = useState(false);
-  const [selectedRiskVulnerability, setSelectedRiskVulnerability] = useState<any>(null);
+  const [selectedRiskVulnerability, setSelectedRiskVulnerability] = useState<unknown>(null);
   const [showThreatIntelligence, setShowThreatIntelligence] = useState(false);
-  const [selectedThreatVulnerability, setSelectedThreatVulnerability] = useState<any>(null);
+  const [selectedThreatVulnerability, setSelectedThreatVulnerability] = useState<unknown>(null);
   const [showPredictiveAnalytics, setShowPredictiveAnalytics] = useState(false);
   const [showZeroTrustScan, setShowZeroTrustScan] = useState(false);
   const [showAdvancedSecurity, setShowAdvancedSecurity] = useState(false);
@@ -427,7 +427,7 @@ export default function DashboardView() {
       if (user) {
         try {
           const history = await SupabaseService.getScanResults(user.uid);
-          const formattedHistory = history.map((scan: any) => ({
+          const formattedHistory = history.map((scan: unknown) => ({
             ...scan,
             timestamp: new Date(scan.timestamp)
           }));
@@ -1202,7 +1202,7 @@ export default function DashboardView() {
                               ['Grade', scan.securityScore?.grade ?? 'N/A'],
                               ['Timestamp', scan.timestamp.toLocaleString()],
                               ['Vulnerabilities', scan.vulnerabilities?.length ?? 0],
-                              ...(scan.vulnerabilities?.map((v: any) => [v.type, v.severity]) ?? []),
+                              ...(scan.vulnerabilities?.map((v: unknown) => [v.type, v.severity]) ?? []),
                             ];
                             const csv = rows.map(r => r.map(String).map(v => `"${v.replace(/"/g, '""')}"`).join(',')).join('\n');
                             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });

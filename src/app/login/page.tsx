@@ -88,7 +88,7 @@ export default function LoginPage() {
         await signIn(email, password);
         router.push('/');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (err.message === 'EMAIL_NOT_CONFIRMED') {
         // User signed up before but hasn't confirmed yet
         setUnconfirmedEmail(email);
@@ -107,7 +107,7 @@ export default function LoginPage() {
     try {
       await resendConfirmation(unconfirmedEmail);
       setResendSuccess(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message || 'Failed to resend confirmation email.');
     } finally {
       setResendingEmail(false);

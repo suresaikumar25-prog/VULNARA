@@ -201,7 +201,7 @@ const ScanReportRenderer = ({ data }: { data: any }) => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Identified Risks ({risks.length})</Text>
           {risks.length > 0 ? (
-            risks.map((r: any, idx: number) => {
+            risks.map((r: unknown, idx: number) => {
               const color = severityColor(r.severity);
               return (
                 <View key={idx} style={[styles.riskCard, { borderLeftColor: color }]}>
@@ -228,7 +228,7 @@ const ScanReportRenderer = ({ data }: { data: any }) => {
   );
 };
 
-export async function generateScanPDFBuffer(scanData: any): Promise<Buffer> {
+export async function generateScanPDFBuffer(scanData: unknown): Promise<Buffer> {
   const stream = await renderToStream(<ScanReportRenderer data={scanData} />);
   return new Promise((resolve, reject) => {
     const chunks: Buffer[] = [];

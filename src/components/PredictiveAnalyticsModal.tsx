@@ -6,7 +6,7 @@ import { X, TrendingUp, BarChart3, AlertTriangle, Shield, Calendar } from 'lucid
 interface PredictiveAnalyticsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  scanHistory: any[];
+  scanHistory: unknown[];
 }
 
 export default function PredictiveAnalyticsModal({
@@ -14,7 +14,7 @@ export default function PredictiveAnalyticsModal({
   onClose,
   scanHistory
 }: PredictiveAnalyticsModalProps) {
-  const [analytics, setAnalytics] = useState<any>(null);
+  const [analytics, setAnalytics] = useState<unknown>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function PredictiveAnalyticsModal({
     setTimeout(() => {
       const totalScans = scanHistory.length;
       const avgScore = scanHistory.reduce((sum, scan) => sum + (scan.securityScore?.score || 0), 0) / totalScans;
-      const criticalVulns = scanHistory.reduce((sum, scan) => sum + (scan.vulnerabilities?.filter((v: any) => v.severity === 'critical').length || 0), 0);
+      const criticalVulns = scanHistory.reduce((sum, scan) => sum + (scan.vulnerabilities?.filter((v: unknown) => v.severity === 'critical').length || 0), 0);
       
       setAnalytics({
         totalScans,
@@ -217,7 +217,7 @@ export default function PredictiveAnalyticsModal({
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Future Predictions</h4>
                 <div className="space-y-3">
-                  {analytics.predictions.map((prediction: any, index: number) => (
+                  {analytics.predictions.map((prediction: unknown, index: number) => (
                     <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2">
@@ -239,7 +239,7 @@ export default function PredictiveAnalyticsModal({
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Risk Factors</h4>
                 <div className="space-y-3">
-                  {analytics.riskFactors.map((risk: any, index: number) => (
+                  {analytics.riskFactors.map((risk: unknown, index: number) => (
                     <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                       <div className="flex items-center justify-between mb-2">
                         <h5 className="font-medium text-white">{risk.factor}</h5>

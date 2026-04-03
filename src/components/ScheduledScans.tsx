@@ -129,7 +129,7 @@ export default function ScheduledScans() {
     } catch { alert('Error deleting scan'); }
   };
 
-  const updateScheduleConfig = (type: string, config: any) => {
+  const updateScheduleConfig = (type: string, config: unknown) => {
     setFormData(p => ({ ...p, schedule_type: type as any, schedule_config: config }));
   };
 

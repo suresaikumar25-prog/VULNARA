@@ -18,7 +18,7 @@ export default function ThreatIntelligenceModal({
   description,
   url
 }: ThreatIntelligenceModalProps) {
-  const [threatData, setThreatData] = useState<any>(null);
+  const [threatData, setThreatData] = useState<unknown>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -199,7 +199,7 @@ export default function ThreatIntelligenceModal({
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Attack Patterns</h4>
                 <div className="space-y-3">
-                  {threatData.attackPatterns.map((pattern: any, index: number) => (
+                  {threatData.attackPatterns.map((pattern: unknown, index: number) => (
                     <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                       <div className="flex items-center justify-between mb-2">
                         <h5 className="font-medium text-white">{pattern.pattern}</h5>
@@ -233,7 +233,7 @@ export default function ThreatIntelligenceModal({
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Recent Incidents</h4>
                 <div className="space-y-3">
-                  {threatData.recentIncidents.map((incident: any, index: number) => (
+                  {threatData.recentIncidents.map((incident: unknown, index: number) => (
                     <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-medium text-white">{incident.date}</span>

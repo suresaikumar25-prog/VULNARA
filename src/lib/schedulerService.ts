@@ -60,7 +60,7 @@ export class SchedulerService {
   }
   
   // Execute a single scheduled scan
-  private static async executeScheduledScan(scan: any) {
+  private static async executeScheduledScan(scan: unknown) {
     try {
       console.log(`🚀 Executing scheduled scan: "${scan.name}" for ${scan.url}`);
       
@@ -92,7 +92,7 @@ export class SchedulerService {
   }
   
   // Perform the actual vulnerability scan
-  private static async performScan(url: string): Promise<any> {
+  private static async performScan(url: string): Promise<unknown> {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/scan`, {
         method: 'POST',
@@ -114,7 +114,7 @@ export class SchedulerService {
   }
   
   // Save scan result to database
-  private static async saveScanResult(scan: any, scanResult: any) {
+  private static async saveScanResult(scan: unknown, scanResult: unknown) {
     try {
       if (!supabase) {
         console.error('❌ Supabase not configured');
@@ -147,7 +147,7 @@ export class SchedulerService {
   }
   
   // Send email notification for completed scan
-  private static async sendEmailNotification(scan: any, scanResult: any) {
+  private static async sendEmailNotification(scan: unknown, scanResult: unknown) {
     try {
       const userEmail = await SchedulingService.getUserEmail(scan.user_id);
       

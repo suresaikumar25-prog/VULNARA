@@ -67,8 +67,8 @@ export class GmailService {
       });
 
       const headers = response.data.payload.headers;
-      const from = headers.find((h: any) => h.name === 'From')?.value || '';
-      const subject = headers.find((h: any) => h.name === 'Subject')?.value || '';
+      const from = headers.find((h: unknown) => h.name === 'From')?.value || '';
+      const subject = headers.find((h: unknown) => h.name === 'Subject')?.value || '';
       
       let body = '';
       

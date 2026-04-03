@@ -14,7 +14,7 @@ export default function ContextualRiskModal({
   onClose,
   vulnerability
 }: ContextualRiskModalProps) {
-  const [riskAnalysis, setRiskAnalysis] = useState<any>(null);
+  const [riskAnalysis, setRiskAnalysis] = useState<unknown>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   useEffect(() => {
@@ -165,7 +165,7 @@ export default function ContextualRiskModal({
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Risk Factors</h4>
                 <div className="space-y-3">
-                  {riskAnalysis.factors.map((factor: any, index: number) => (
+                  {riskAnalysis.factors.map((factor: unknown, index: number) => (
                     <div key={index} className="bg-white/5 border border-white/10 p-4 rounded-lg">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2">

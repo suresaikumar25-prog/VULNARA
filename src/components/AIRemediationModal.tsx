@@ -19,7 +19,7 @@ export default function AIRemediationModal({
   framework
 }: AIRemediationModalProps) {
   const [isGenerating, setIsGenerating] = useState(false);
-  const [remediation, setRemediation] = useState<any>(null);
+  const [remediation, setRemediation] = useState<unknown>(null);
 
   const generateRemediation = async () => {
     setIsGenerating(true);

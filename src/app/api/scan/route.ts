@@ -664,7 +664,7 @@ async function checkTLSCertificate(url: string): Promise<{ vulnerabilities: Vuln
     }
     
     // Check certificate details
-    const cert = await new Promise<any>((resolve, reject) => {
+    const cert = await new Promise<unknown>((resolve, reject) => {
       const socket = tls.connect(port, hostname, {
         servername: hostname,
         rejectUnauthorized: false
@@ -1043,7 +1043,7 @@ async function scanForOpenRedirect(url: string): Promise<Vulnerability[]> {
 // Calculate security score based on vulnerabilities
 function calculateSecurityScore(vulnerabilities: Vulnerability[]) {
   // More realistic scoring system that reflects real-world security assessments
-  let baseScore = 85; // Start with a realistic base score for a properly configured website
+  const baseScore = 85; // Start with a realistic base score for a properly configured website
   
   // Count vulnerabilities by severity
   const criticalCount = vulnerabilities.filter(v => v.severity === 'critical').length;

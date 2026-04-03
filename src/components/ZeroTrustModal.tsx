@@ -14,7 +14,7 @@ export default function ZeroTrustModal({
   onClose,
   url
 }: ZeroTrustModalProps) {
-  const [scanResults, setScanResults] = useState<any>(null);
+  const [scanResults, setScanResults] = useState<unknown>(null);
   const [isScanning, setIsScanning] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -246,7 +246,7 @@ export default function ZeroTrustModal({
                       <div className="p-6 rounded-2xl" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
                         <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-6">Security Principles</h4>
                         <div className="space-y-4">
-                          {scanResults.principles.map((principle: any, index: number) => (
+                          {scanResults.principles.map((principle: unknown, index: number) => (
                             <div key={index} className="flex items-center justify-between pb-4 border-b border-white/5 last:border-0 last:pb-0">
                               <span className="text-sm font-bold text-white/90">{principle.principle}</span>
                               <span className={`px-3 py-1 rounded-md text-[10px] font-black tracking-widest border ${getStatusColor(principle.status)}`}>
@@ -274,7 +274,7 @@ export default function ZeroTrustModal({
 
                 {activeTab === 'principles' && (
                   <div className="space-y-4 animate-in fade-in duration-500">
-                    {scanResults.principles.map((principle: any, index: number) => (
+                    {scanResults.principles.map((principle: unknown, index: number) => (
                       <div key={index} className="p-6 rounded-2xl transition-all hover:bg-white/5" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
                         <div className="flex items-center justify-between mb-4">
                           <h4 className="font-bold text-lg text-white">{principle.principle}</h4>
@@ -303,7 +303,7 @@ export default function ZeroTrustModal({
 
                 {activeTab === 'controls' && (
                   <div className="grid md:grid-cols-2 gap-4 animate-in fade-in duration-500">
-                    {scanResults.securityControls.map((control: any, index: number) => (
+                    {scanResults.securityControls.map((control: unknown, index: number) => (
                       <div key={index} className="p-6 rounded-xl" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
                         <div className="flex items-start justify-between mb-4 pb-4 border-b border-white/5">
                           <h4 className="font-bold text-white text-sm max-w-[150px] leading-tight">{control.control}</h4>

@@ -150,7 +150,7 @@ export class WhatsAppScanService {
 
   // Perform security scan
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static async performScan(url: string): Promise<any> {
+  static async performScan(url: string): Promise<unknown> {
     try {
       const response = await fetch('http://localhost:3000/api/scan', {
         method: 'POST',
@@ -244,7 +244,7 @@ export class WhatsAppScanService {
           message += `🔍 *Top Issues:*\n`;
           const topVulns = vulnerabilities.slice(0, 3);
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          topVulns.forEach((vuln: any, vulnIndex: number) => {
+          topVulns.forEach((vuln: unknown, vulnIndex: number) => {
             const severityEmojis = {
               critical: '🔴',
               high: '🟠',
@@ -303,13 +303,13 @@ export class WhatsAppScanService {
         summary: {
           total: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.length || 0), 0),
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          critical: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: any) => v.severity === 'critical').length || 0), 0),
+          critical: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: unknown) => v.severity === 'critical').length || 0), 0),
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          high: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: any) => v.severity === 'high').length || 0), 0),
+          high: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: unknown) => v.severity === 'high').length || 0), 0),
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          medium: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: any) => v.severity === 'medium').length || 0), 0),
+          medium: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: unknown) => v.severity === 'medium').length || 0), 0),
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          low: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: any) => v.severity === 'low').length || 0), 0)
+          low: results.reduce((sum, r) => sum + (r.scanResult?.vulnerabilities?.filter((v: unknown) => v.severity === 'low').length || 0), 0)
         },
         securityScore: {
           score: results.length > 0 ? Math.round(results.reduce((sum, r) => sum + (r.scanResult?.securityScore?.score || 0), 0) / results.length) : 100,

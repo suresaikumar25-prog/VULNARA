@@ -3,7 +3,7 @@ import { supabase } from './supabase';
 export class SupabaseService {
   // Save scan result to database
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static async saveScanResult(scanData: any) {
+  static async saveScanResult(scanData: unknown) {
     try {
       if (!supabase) {
         console.log('Supabase not configured, scan result not saved');

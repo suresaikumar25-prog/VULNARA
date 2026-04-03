@@ -30,7 +30,7 @@ export const useAuth = () => {
 };
 
 // Helper function to save/update user in Supabase
-async function syncUserToSupabase(supabaseUser: any, name?: string) {
+async function syncUserToSupabase(supabaseUser: unknown, name?: string) {
   try {
     const userId = supabaseUser.id;
     const email = supabaseUser.email || '';

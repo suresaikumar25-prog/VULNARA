@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
 
 // Extract email data from webhook payload
 // This function needs to be customized based on your email service provider
-function extractEmailData(webhookBody: any): {
+function extractEmailData(webhookBody: unknown): {
   from: string;
   subject: string;
   body: string;

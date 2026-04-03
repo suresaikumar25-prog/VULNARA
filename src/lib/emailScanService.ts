@@ -75,7 +75,7 @@ export class EmailScanService {
   }
 
   // Perform security scan
-  static async performScan(url: string): Promise<any> {
+  static async performScan(url: string): Promise<unknown> {
     try {
       const response = await fetch('http://localhost:3000/api/scan', {
         method: 'POST',
@@ -199,7 +199,7 @@ export class EmailScanService {
               <ul style="margin: 0; padding-left: 20px;">
             `;
             
-            vulnerabilities.slice(0, 5).forEach((vuln: any) => {
+            vulnerabilities.slice(0, 5).forEach((vuln: unknown) => {
               const severityColors = {
                 critical: '#dc2626',
                 high: '#ea580c',
@@ -232,7 +232,7 @@ export class EmailScanService {
           
           if (vulnerabilities.length > 0) {
             text += `\nVulnerabilities Found:\n`;
-            vulnerabilities.slice(0, 5).forEach((vuln: any) => {
+            vulnerabilities.slice(0, 5).forEach((vuln: unknown) => {
               text += `- ${vuln.severity.toUpperCase()}: ${vuln.type}\n`;
             });
             if (vulnerabilities.length > 5) {
